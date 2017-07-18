@@ -1,0 +1,161 @@
+/************************************
+          General
+************************************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+a   {
+  text-decoration: none;
+}
+
+body{
+  font-family: 'VT323', monospace;
+  background: black;
+}
+
+
+/************************************
+          Main
+************************************/
+
+/*** the background arcade video ***/
+.background-video-container  {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1000;
+}
+
+.background-video  {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.center-container  {
+  width: 900px;
+  margin: auto;
+  position: relative;
+}
+
+.complete-container {
+  width: 100%;
+  height: 500px;
+  background: black;
+  opacity: 0.95;
+  position: absolute;
+  top: 150px;
+  overflow: hidden;
+  border-radius: 25px;
+  border: solid 4px #83c98b;
+  animation-name: rise;
+  animation-duration: 4s;
+}
+
+@keyframes rise {
+  from {
+    margin-top: 100%;
+  }
+
+  to {
+    margin-top: 0%;
+  }
+}
+
+.title  {
+  font-size: 84px;
+  color: #83c98b;
+  position: absolute;
+  top: 100px;
+  left: 459px;
+  text-shadow: 2px 1px 2px #fff;
+  -webkit-animation-name: blinker;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+  -webkit-animation-duration: 1.7s;
+}
+
+@-webkit-keyframes blinker {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+.video-container  {
+  width: 400px;
+  height: 100%;
+  background: #FFF;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+
+.robbie-video {
+  width: 880px;
+  position: absolute;
+  top: 0px;
+  left: -219px;
+}
+
+.input-button {
+  width: 350px;
+  height: 45px;
+  background: #83c98b;
+  position: absolute;
+  top: 200px;
+  left: 470px;
+  border-radius: 5px;
+  border: solid 3px #FFF;
+  transition: 0.5s;
+}
+
+.complete {
+  font-size: 40px;
+  color: #FFF;
+  text-align: center;
+  line-height: 45px;
+  transition: 0.5s;
+
+}
+
+.input-button:hover{
+  cursor: pointer;
+  /*transform: scale(1.1);*/
+  transform: rotate(2deg);
+}
+
+.input-button:hover .complete{
+  cursor: pointer;
+  transform: scale(1.1);
+  /*transform: rotate(2deg);*/
+}
+
+.input-field  {
+  width: 350px;
+  height: 45px;
+  position: absolute;
+  top: 265px;
+  left: 470px;
+  font-size: 30px;
+  border: solid 3px #83c98b;
+  color: #83c98b;
+  border-radius: 5px;
+  text-align: center;
+  Copyright (c) 2017 Global Var, Inc. All Rights Reserved.
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #83c98b;
+}
+
+.copy {
+  font-size: 14px;
+  color: #83c98b;
+  position: absolute;
+  top: 450px;
+  left: 487px;
+}
