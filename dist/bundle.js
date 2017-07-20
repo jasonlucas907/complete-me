@@ -123,8 +123,7 @@ function removeSuggestBox() {
 }
 
 function rabbitHoleVideo() {
-  console.log('rabbit')
-  $('.video-container').remove('.robbie-video');
+  audio.volume = .2;
   $(".video-container").append(`
       <video poster="assets/nate.mp4" class='rabbit-video' id="bgvid" playsinline autoplay>
           <source src="assets/nate.mp4" type="video/webm">
@@ -134,7 +133,22 @@ function rabbitHoleVideo() {
   $('.rabbit-video').delay(19000).fadeOut(1000, function(){
     $('.rabbit-video').remove();
   })
-  $('.robbie-video').removeProp('muted')
+}
+
+function robbieVideo() {
+    audio.volume = .6;
+  $(".video-container").append(`
+    <video poster="assets/robbie-complete-me.mp4" class='robbie-video' id="bgvid" playsinline autoplay loop>
+        <source src="assets/robbie-complete-me.mp4" type="video/webm">
+        <source src="assets/robbie-complete-me.mp4" type="video/mp4">
+    </video>
+    `);
+}
+
+function removeRobbie() {
+  $('.robbie-video').delay(100).fadeOut(100, function(){
+    $('.robbie-video').remove();
+  })
 }
 
 
@@ -155,7 +169,10 @@ $('.suggest-button').on('click', function() {
     if(suggestButtonCounter === 0) {
     suggestButtonCounter = 1;
     addSuggestBox();
-    // rabbitHoleVideo();
+    removeRobbie();
+    rabbitHoleVideo();
+    // robbieVideo();
+    setTimeout(() => {robbieVideo(); }, 20000);
   }
   else if(suggestButtonCounter === 1) {
     suggestButtonCounter = 0;
