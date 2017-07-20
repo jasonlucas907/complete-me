@@ -3,7 +3,7 @@ import Trie from '../scripts/Trie'
 import Node from '../scripts/Node'
 const text = "/usr/share/dict/words"
 const fs = require('fs')
-// const dictionary = fs.readFileSync(text).toString().trim().split('\n')
+const dictionary = fs.readFileSync(text).toString().trim().split('\n')
 
 describe('Trie functionality', () => {
 
@@ -39,6 +39,7 @@ describe('Trie functionality', () => {
     })
 
     it('should be able to insert a word and the last letter should have a isWord property of true', () => {
+      completeMe.insert('app');
       completeMe.insert('apple');
 
       expect(
@@ -50,6 +51,14 @@ describe('Trie functionality', () => {
         .children.e
         .letter
       ).to.equal('e')
+
+      expect(
+        completeMe.root
+        .children.a
+        .children.p
+        .children.p
+        .isWord
+      ).to.equal(true)
 
       expect(
         completeMe.root
@@ -93,7 +102,11 @@ describe('Trie functionality', () => {
   })
 
   describe('count', () => {
-    let completeMe = new Trie();
+     let completeMe
+
+    beforeEach(function () {
+      completeMe = new Trie();
+    })
 
     it('should return number of words inserted', () => {
       expect(completeMe.count()).to.equal(0);
@@ -142,6 +155,25 @@ describe('Trie functionality', () => {
     })
   });
 
+  describe('Populate', () => {
+
+     it('should populate the Trie with the dictionary', () => {
+       var completion = new Trie()
+
+       completion.populate(dictionary)
+       expect(completion.count()).to.eq(234371)
+     }).timeout(10000)
+   })
+
+  function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
   describe('select', () => {
     let completeMe;
 
@@ -159,15 +191,39 @@ describe('Trie functionality', () => {
 
       expect(suggestions).to.deep.equal([ 'app', 'apple', 'applesauce', 'apply' ])
 
-      completeMe.select('ape');
+      completeMe.select('app');
+      suggestions = completeMe.suggest('app');
       expect(suggestions).to.deep.equal([ 'app', 'apple', 'applesauce', 'apply' ])
 
+      sleep(10);
+
       completeMe.select('apply');
+      suggestions = completeMe.suggest('app');
       expect(suggestions).to.deep.equal([ 'apply', 'app', 'apple', 'applesauce' ])
 
+      sleep(10);
+
       completeMe.select('apple');
+      suggestions = completeMe.suggest('app');
       expect(suggestions).to.deep.equal([ 'apple', 'apply', 'app', 'applesauce' ])
+
+      sleep(10);
+
+      completeMe.select('app');
+      suggestions = completeMe.suggest('app');
+      expect(suggestions).to.deep.equal([ 'app', 'apple', 'apply', 'applesauce' ])
+
+      sleep(10);
+
+      completeMe.select('apply');
+      sleep(10);
+      completeMe.select('app');
+      sleep(10);
+      completeMe.select('apply');
+      suggestions = completeMe.suggest('app');
+      expect(suggestions).to.deep.equal([ 'apply', 'app', 'apple', 'applesauce' ])
     })
-  })
+
+})
 
 })

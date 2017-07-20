@@ -5,14 +5,14 @@ describe ('Node functionality', () => {
   let node;
 
   beforeEach(() => {
-    node = new Node('pizza')
+    node = new Node()
   })
 
   it('should be a thing', () => {
     expect(node).to.exist
   })
 
-  it('should start out with no letters', () => {
+  it('should start with null as its defualt letter', () => {
     expect(node.letter).to.equal(null)
   })
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Complete me</title>
-    <link href="https://fonts.googleapis.com/css?family=Audiowide|Monoton|Press+Start+2P|VT323" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Inline|Days+One|Russo+One" rel="stylesheet">
     <link href='style.css' rel='stylesheet'>
   </head>
 
@@ -24,33 +24,36 @@
       </video>
     </section>
 
-      <!-- the junk centered-container -->
+      <!-- auto centered-container -->
     <section class='center-container'>
-      <!-- all the good container  -->
+      <!-- all the stuff container  -->
       <section class='complete-container'>
-
+        <!--  you complete me video container  -->
         <section class='video-container'>
           <video poster="assets/robbie-complete-me.mp4" class='robbie-video' id="bgvid" playsinline autoplay loop>
               <source src="assets/robbie-complete-me.mp4" type="video/webm">
               <source src="assets/robbie-complete-me.mp4" type="video/mp4">
           </video>
-
+          <!--  titles/ buttons and inputs -->
         </section>
         <h1 class='title'>COMPLETE ME</h1>
-        <section class='input-button'>
-          <p class="complete">I'M DONE</p>
+        <section class='suggest-button'>
+          <p class="complete">HELP ME</p>
         </section>
         <input class='input-field' type='text' placeholder="ENTER TEXT"/>
+        <p class='word-count'></p>
+        <section class='suggestion-container hide'>
+          <!--  append area  -->
+        </section>
         <p class="copy">Copyright (c) 2017 Global Var, Inc. All Rights Reserved.</p>
 
       </section>
 
     </section>
 
-
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./dist/bundle.js" charset="utf-8"></script>
   </body>
 </html>
