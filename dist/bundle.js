@@ -65,12 +65,20 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(1);
+(function webpackMissingModule() { throw new Error("Cannot find module \"run\""); }());
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scripts_Trie__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__scripts_words_json__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scripts_Trie__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__scripts_words_json__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__scripts_words_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__scripts_words_json__);
 
 
@@ -171,7 +179,6 @@ $('.suggest-button').on('click', function() {
     addSuggestBox();
     removeRobbie();
     rabbitHoleVideo();
-    // robbieVideo();
     setTimeout(() => {robbieVideo(); }, 20000);
   }
   else if(suggestButtonCounter === 1) {
@@ -182,11 +189,11 @@ $('.suggest-button').on('click', function() {
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Node__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Node__ = __webpack_require__(3);
 
 
 
@@ -291,7 +298,7 @@ class Trie {
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -309,7 +316,7 @@ class Node {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = [
